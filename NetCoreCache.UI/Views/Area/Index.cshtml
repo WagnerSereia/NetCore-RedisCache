@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NetCoreCache.UI.ViewModel.AreaViewModel>
+
+@{
+    ViewData["Title"] = "Areas";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>            
+        </tr>
+}
+    </tbody>
+</table>

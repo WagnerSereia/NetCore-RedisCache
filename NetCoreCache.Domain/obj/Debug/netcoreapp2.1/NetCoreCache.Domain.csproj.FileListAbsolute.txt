@@ -1,0 +1,11 @@
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\bin\Debug\netcoreapp2.1\NetCoreCache.Domain.deps.json
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\bin\Debug\netcoreapp2.1\NetCoreCache.Domain.dll
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\bin\Debug\netcoreapp2.1\NetCoreCache.Domain.pdb
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.csprojAssemblyReference.cache
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.csproj.CoreCompileInputs.cache
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.AssemblyInfoInputs.cache
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.AssemblyInfo.cs
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.dll
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\obj\Debug\netcoreapp2.1\NetCoreCache.Domain.pdb
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\bin\Debug\netcoreapp2.1\NetCoreCache.Domain.runtimeconfig.json
+C:\Users\wagner.sereia\source\repos\NetCoreCache\NetCoreCache.Domain\bin\Debug\netcoreapp2.1\NetCoreCache.Domain.runtimeconfig.dev.json
