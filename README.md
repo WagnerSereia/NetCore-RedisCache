@@ -24,6 +24,6 @@ Para realizar essa tarefa, clicar com o botão direito em cima da solução e "S
 
 3) Após todo o processo rodar o projeto, e se tudo acontecer como esperado a aplicação já estara em funcionamento.
 
-Para avaliar o funcionamento do cache, poderá ir ate a controller AreaController do projeto NetCoreCache.Service e avaliar o funcionamento na linha 40 e linha 45.
-Quando passar pela linha 40, significa que esta recuperando os dados em cache e renovado a cada 10 segundos pondendo ser configurado através do código na linha 48
-Quando passar pela linha 45, significa que a aplicação batera no Banco de Dados (inicialmente configurado no arquivo json)
+Para avaliar o funcionamento do cache, poderá ir ate a controller AreaController do projeto NetCoreCache.Service e avaliar o funcionamento na linha 43 e linha 49.
+Quando passar pela linha 43, significa que esta recuperando os dados em cache e renovado a cada X minutos pondendo ser configurado através do arquivo de configuração appSettings.json da camada de Servicos na linha 16
+Quando passar pela linha 49, significa que a aplicação batera no Banco de Dados (inicialmente configurado no arquivo json)
