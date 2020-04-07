@@ -7,6 +7,7 @@ Para usar a aplicação será necessário:
 1) Instalar o redis, que pode ser baixado dos links a seguir
   - Imagem Docker
   https://hub.docker.com/_/redis/
+
 Obs.: Atenção para usar a imagem do redis utilizar o comando a seguir, pois é a configuração indicada nas configurações da aplicação.
 
 Para isso abra um terminal de comando ou powershell e digitar o comando a seguir:
