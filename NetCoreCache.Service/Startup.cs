@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NetCoreCache.Configurations;
+using NetCoreCache.Configurations.CacheRedis;
 using NetCoreCache.Domain.Context;
 
 namespace NetCoreCache.Service
@@ -67,11 +68,9 @@ namespace NetCoreCache.Service
 
             services.AddDIConfiguration();
 
-            services.AddDistributedRedisCache(option =>
-            {
-                option.Configuration = "127.0.0.1";
-                option.InstanceName = "TesteCache";                
-            });
+            // Ativando o uso de cache via Redis            
+            services.AddDistributedMemoryCache();
+            services.AddRedisConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
