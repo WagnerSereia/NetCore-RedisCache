@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim AS base
+WORKDIR /app
+EXPOSE 443
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
+WORKDIR /src
+COPY ["src/NetCoreCache.Service/NetCoreCache.Service.csproj", "src/NetCoreCache.Service/"]
+COPY ["src/NetCoreCache.Domain/NetCoreCache.Domain.csproj", "src/NetCoreCache.Domain/"]
+RUN dotnet restore "src/NetCoreCache.Service/NetCoreCache.Service.csproj"
+COPY . .
+WORKDIR "src/NetCoreCache.Service"
+RUN dotnet build "NetCoreCache.Service.csproj" -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish "NetCoreCache.Service.csproj" -c Release -o /app
+
+WORKDIR /app
+COPY ["src/NetCoreCache.Domain/ArquivoJsonBanco/areas.json", "src/NetCoreCache.Domain/ArquivoJsonBanco/"]
+
+FROM base AS final
+WORKDIR /app
+ENV ASPNETCORE_URLS http://*:443
+ENV ASPNETCORE_ENVIRONMENT Production
+EXPOSE 443
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "NetCoreCache.Service.dll"]

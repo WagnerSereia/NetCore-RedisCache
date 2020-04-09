@@ -1,0 +1,32 @@
+[
+  {
+    "idArea": 1,
+    "descricao": "Administrativo",
+    "status": 0
+  },
+  {
+    "idArea": 2,
+    "descricao": "Operações",
+    "status": 0
+  },
+  {
+    "idArea": 3,
+    "descricao": "Produção",
+    "status": 0
+  },
+  {
+    "idArea": 4,
+    "descricao": "TI",
+    "status": 0
+  },
+  {
+    "idArea": 5,
+    "descricao": "Embalagem",
+    "status": 0
+  },  
+  {
+    "idArea": 6,
+    "descricao": "RH",
+    "status": 0
+  }
+]

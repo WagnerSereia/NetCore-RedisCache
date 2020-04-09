@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  serverApi:
+    image: LabNetCoreCache.api:dev
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+    - ./client:/app
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - "redisLabNetCoreCache"
+
+  redisLabNetCoreCache:
+    image: redis:alpine
+    ports:
+      - "16379:6379"
+
+  nginx:
+    image: LabNetCoreCache.proxy:dev
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - "80:80"
+      - "8287:8286"
+    links:      
+      - serverApi
+      - redisLabNetCoreCache
+
+   #networks: 
+   #  LabNetCoreCache-network:
+   #    driver: bridge      

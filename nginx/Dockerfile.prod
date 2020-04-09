@@ -1,0 +1,4 @@
+FROM nginx
+WORKDIR /etc/nginx
+COPY ["nginx/nginx.prod.conf", "nginx.conf"]
+
