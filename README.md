@@ -4,26 +4,20 @@ Aplicação que utiliza AspNet.Mvc acessando uma api configurada com Cache utili
 O objetivo da aplicação é demonstrar a utilização de cache evitando assim a necessidade de a cada requisição realizar uma consulta em repositorios (Banco, arquivos, etc), sendo esse cache renovado a cada X tempo.
 
 Para usar a aplicação será necessário:
-1) Instalar o redis, que pode ser baixado dos links a seguir
-  - Imagem Docker
-  https://hub.docker.com/_/redis/
+Após os ajustes do commit numero 11, o sistema poderá ser rodado atraves do docker, portanto para:
 
-Obs.: Atenção para usar a imagem do redis utilizar o comando a seguir, pois é a configuração indicada nas configurações da aplicação.
+1) Subir a aplicação com toda a infra necessária, abrir o powersheel e executar o arquivo "subirAplicacao.bat"
+2) Derrubar toda a infraestrutura e aplicação, abrir o powersheel e executar o arquivo "derrubarAplicacao.bat"
 
-Para isso abra um terminal de comando ou powershell e digitar o comando a seguir:
+Após todo o processo de subida da aplicação, e se tudo acontecer como esperado, a aplicação já estara em funcionamento e respondendo através do endereço:
 
-	docker run --name redisLabNetCoreCache -d redis
+http://localhost:44336/Area
 
-O nome "redisLabNetCoreCache" é o nome configurado em connectionsStrings para indicar a instancia do redis na aplicação.
+Para avaliar o funcionamento do cache, poderá ir ate a controller AreaController do projeto NetCoreCache.Service e avaliar o funcionamento na linha 44 e linha 50.
+Na linha 44 o sistema está recuperando os dados em cache
+Na linha 50 o sistema esta buscando os dados no Repositorio (nesse caso um arquivo json) e com tempo de expiração de X minutos pondendo ser configurado através do arquivo de configuração appSettings.json da camada de Servicos na linha 15
 
-  - Instalação para windows
-  https://github.com/ServiceStack/redis-windows
- 
-2) Após a instalação do Redis, clone da aplicação, abrir a aplicação no visual Studio e setar o inicio da aplicação como multiplos projetos.
-Para realizar essa tarefa, clicar com o botão direito em cima da solução e "Set StartUp Project" e selecionar "Multiple startup projects" deixando na ordem NetCoreCache.Service e NetCoreCache.UI com a action "Start".
+Após os dados estarem serem colocados em cache, toda requisição será recuperada do cache e somente quando expirar o mesmo será consultado o repositorio novamente.
 
-3) Após todo o processo rodar o projeto, e se tudo acontecer como esperado a aplicação já estara em funcionamento.
 
-Para avaliar o funcionamento do cache, poderá ir ate a controller AreaController do projeto NetCoreCache.Service e avaliar o funcionamento na linha 43 e linha 49.
-Quando passar pela linha 43, significa que esta recuperando os dados em cache e renovado a cada X minutos pondendo ser configurado através do arquivo de configuração appSettings.json da camada de Servicos na linha 16
-Quando passar pela linha 49, significa que a aplicação batera no Banco de Dados (inicialmente configurado no arquivo json)
+Obs.: Para rodar a aplicação diretamente no visual studio algumas configurações deverão serem realizadas no appSettings
