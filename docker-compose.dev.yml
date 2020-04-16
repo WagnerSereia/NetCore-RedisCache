@@ -1,35 +1,45 @@
 version: '3'
 
 services:
+  client:
+    image: netcore-cache.ui:dev
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.dev
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+    network:
+
   serverApi:
-    image: LabNetCoreCache.api:dev
+    image: netcore-cache.service:dev
     build: 
       context: ./server
       dockerfile: Dockerfile.dev
-    volumes:
-    - ./client:/app
     environment: 
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - "redisLabNetCoreCache"
+      - "netcore-cache.redis-DEV"
 
-  redisLabNetCoreCache:
+  netcore-cache.redis-DEV:
     image: redis:alpine
     ports:
       - "16379:6379"
+    networks:
+       - netCoreCache-network-DEV
 
   nginx:
-    image: LabNetCoreCache.proxy:dev
+    image: netcore-cache.proxy:dev
     build: 
       context: ./nginx
       dockerfile: Dockerfile.dev
     ports:
-      - "80:80"
+      - "81:80"
       - "8287:8286"
-    links:      
+    links:
+      - client
       - serverApi
-      - redisLabNetCoreCache
+      - netcore-cache.redis-DEV
 
-   #networks: 
-   #  LabNetCoreCache-network:
-   #    driver: bridge      
+networks: 
+  netCoreCache-network-DEV:
+    driver: bridge

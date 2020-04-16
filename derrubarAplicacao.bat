@@ -8,6 +8,7 @@ docker stop netcore-rediscache_serverApi_2
 docker stop netcore-rediscache_serverApi_3
 docker stop netcore-rediscache_serverApi_4
 docker stop netcore-rediscache_netcore-cache.redis_1
+docker stop netcore-cache.proxy:prod
 
 @echo ######################################
 @echo #Remove os Containers da Aplicação
@@ -17,6 +18,7 @@ docker rm netcore-rediscache_serverApi_1
 docker rm netcore-rediscache_serverApi_2
 docker rm netcore-rediscache_serverApi_3
 docker rm netcore-rediscache_serverApi_4
+docker rm netcore-rediscache_nginx_1
 @echo docker rm netcore-rediscache_netcore-cache.redis_1 
 
 @echo ######################################
@@ -24,4 +26,4 @@ docker rm netcore-rediscache_serverApi_4
 @echo ######################################
 docker rmi netcore-cache.service:prod
 docker rmi netcore-cache.ui:prod
-
+docker rmi netcore-cache.proxy:prod

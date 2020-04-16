@@ -55,7 +55,7 @@ namespace NetCoreCache.Service.Controllers
                 return areas;
             }
         }
-
+        
         [HttpGet]
         [Route("criar")]
         public ActionResult Criar()

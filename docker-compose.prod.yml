@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+  client:
+    image: netcore-cache.ui:prod
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.prod
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+#    ports:
+#      - "80:80"
+#      - "44336:44336"
+    links:
+      - serverApi
+    networks:
+      - netCoreCache-network
+
   serverApi:
     image: netcore-cache.service:prod
     build: 
@@ -20,20 +35,17 @@ services:
     networks:
        - netCoreCache-network
 
-  client:
-    image: netcore-cache.ui:prod
+  nginx:
+    image: netcore-cache.proxy:prod
     build: 
-      context: ./client
+      context: ./nginx
       dockerfile: Dockerfile.prod
-    environment: 
-      - ASPNETCORE_ENVIRONMENT=Production
     ports:
       - "80:80"
-      - "44336:44336"
+      - "8287:8286"
     links:
+      - client
       - serverApi
-    networks:
-      - netCoreCache-network
 
 networks: 
   netCoreCache-network:

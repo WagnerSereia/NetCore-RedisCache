@@ -1,4 +1,4 @@
 FROM nginx
 WORKDIR /etc/nginx
-COPY ["nginx/nginx.dev.conf", "nginx.conf"]
+COPY ["./nginx.dev.conf", "nginx.conf"]
 
