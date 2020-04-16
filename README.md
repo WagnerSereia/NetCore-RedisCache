@@ -11,7 +11,7 @@ Após os ajustes do commit numero 11, o sistema poderá ser rodado atraves do do
 
 Após todo o processo de subida da aplicação, e se tudo acontecer como esperado, a aplicação já estara em funcionamento e respondendo através do endereço:
 
-http://localhost:44336/Area
+http://localhost
 
 Para avaliar o funcionamento do cache, poderá ir ate a controller AreaController do projeto NetCoreCache.Service e avaliar o funcionamento na linha 44 e linha 50.
 Na linha 44 o sistema está recuperando os dados em cache
