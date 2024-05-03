@@ -22,7 +22,6 @@ Após os dados estarem serem colocados em cache, toda requisição será recuper
 
 Obs.: Para rodar a aplicação diretamente no visual studio algumas configurações deverão serem realizadas no appSettings
 
+## Parceiro
+Esse é um desenvolvimento de pesquisa e parceria com [ConnectionPharma](https://cpharma.com.br)
 
-
-
-Esse é um desenvolvimento de pesquisa e parceria com https://cpharma.com.br
